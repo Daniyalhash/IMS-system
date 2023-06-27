@@ -1,0 +1,15 @@
+-- database: f:\code playGround\projects\inventory managemnet sys\shoes-ims\mysite\data.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "product";
+CREATE TABLE "product_0" (
+	"No"	INTEGER,
+	"aname"	TEXT,
+	"brand"	TEXT,
+	"color"	TEXT,
+	"size"	INTEGER,
+	"cate"	TEXT,
+	"price"	INTEGER,
+	PRIMARY KEY("No" AUTOINCREMENT)
+);

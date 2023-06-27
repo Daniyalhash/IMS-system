@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMS</title>
+    <!-- favicon icon -->
+    <link rel="icon" type="image/x-icon" href="../static/pic/nike-removebg-preview.png">
+    
+    <link rel="stylesheet" href="{% static '../static/asset/product.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+   <!-- Montserrat Font -->
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900display=swap" rel="stylesheet">
+  
+   <!-- Material Icons -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+   <link rel="stylesheet" href="css/styles.css">
+   <!-- bootstarrp -->
+   
+   <!-- <!–Jquery CDN link –> -->
+   {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% endcomment %}
+   
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">IMS</span>
+      </div>
+      <div class="navv">
+        <a href="#about">Mega Menu</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Store</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Profile</a>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">IMS</span>
+        </div>
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="{% url 'dashboard' %}" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Dashboard</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'product' %}" class="nav-link">
+                <i class="bx bxs-shopping-bags icon"></i>
+                <span class="link">Products</span>
+              </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'supplier' %}" class="nav-link">
+                  <i class="bx bx-user-pin icon"></i>
+                  <span class="link">Supplier</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'purchase' %}" class="nav-link">
+                  <i class="bx bx-bar-chart-alt-2 icon"></i>
+                  <span class="link">Purchase</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'sale' %}" class="nav-link">
+                  <i class="bx bx-pie-chart-alt-2 icon"></i>
+                  <span class="link">Sales</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'inventory' %}" class="nav-link">
+                  <i class="bx bx-folder-open icon"></i>
+                  <span class="link">Inventory</span>
+                </a>
+              </li>
+              {% comment %} <li class="list">
+                <a href="{% url 'customer' %}"class="nav-link">
+                  <i class="bx bx-male icon"></i>
+                  <span class="link">Customer</span>
+                  
+                </a>
+              </li> {% endcomment %}
+          </ul>
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+  
+{% comment %} update {% endcomment %}
+
+
+<form class="modal-content animate" action="{% url 'editpurchase'%}" method="post">{% csrf_token %}
+      <div class="imgcontainer">
+        
+   <div class="text">
+               Product Attributes
+            </div>
+      </div>
+  
+      <div class="container">
+        <input type="hidden" placeholder="Enter pur_id" id="pur_id" name="pur_id" value="{{purchase.pur_id}}" required>
+        <input type="hidden" placeholder="Enter in_id" id="in_id" name="in_id" value="{{purchase.in_id}}" required>
+        <label for="sup_id"><b>Supplier name</b></label>
+        <input type="text" placeholder="Enter supplier name" id="sup_id" name="sup_id"  value="{{purchase.sup_id}}"required>
+        <label for="pur_quan"><b>Enter Quanity</b></label>
+        <input type="number" placeholder="Enter Quanity..." id="pur_quan" name="pur_quan" min="1" value="{{purchase.pur_quan}}" required>
+        <label for="pur_price"><b>Enter price</b></label>
+        <input type="number" placeholder="Enter price..." id="pur_price" name="pur_price" min="1"value="{{purchase.pur_price}}" required>
+     
+          
+       
+            <button class="btn" type="submit">Update chanages
+            </button>
+          </form>
+      </div> 
+  
+
+    </form>
+    
+
+ 
+    
+ <!-- scripts -->
+
+ <script src="{% static 'js/java.js' %}"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
+
+  </body>
+  
+</html>

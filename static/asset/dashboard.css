@@ -1,0 +1,263 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100%;
+  background-color: #1d2634
+}
+
+nav {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+.logo .menu-icon {
+  color: #333;
+  font-size: 24px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.logo .logo-name {
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .navv{
+	display: flex;
+	
+	margin: 0 26px;
+}
+.navv{
+
+	color: #333;
+	font-size: 20px;
+	
+	cursor: pointer;
+}
+.navv a{
+	
+	text-decoration: none;
+	color: #333;
+}
+.navv a:hover{
+	color:#707070
+}
+
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 260px;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+nav.open .sidebar {
+  left: 0;
+}
+.sidebar .sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+.sidebar-content .list {
+  list-style: none;
+}
+.list .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover {
+  background-color: #4070f4;
+}
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #707070;
+}
+.nav-link .link {
+  font-size: 16px;
+  color: #707070;
+  font-weight: 400;
+}
+.lists .nav-link:hover .icon,
+.lists .nav-link:hover .link {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.3);
+}
+nav.open ~ .overlay {
+  opacity: 1;
+  left: 260px;
+  pointer-events: auto;
+}
+.container-div{
+width: 100%;
+background-color: #e3e3e3;
+display: flex;
+
+
+}
+/* .grid-container */
+
+.main-container {
+	grid-area: main;
+	overflow-y: auto;
+	padding: 20px 20px;
+	color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .main-title {
+	display: block;
+	justify-content: space-evenly;
+  }
+  
+  .main-cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr ;
+	gap: 30px;
+	margin: 20px 0;
+  }
+  
+  .card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 25px;
+	border-radius: 5px;
+  }
+  
+  .card:first-child {
+	background-color: #2962ff;
+  }
+  
+  .card:nth-child(2) {
+	background-color: #ff6d00;
+  }
+  
+  .card:nth-child(3) {
+	background-color: #2e7d32;
+  }
+  
+  .card:nth-child(4) {
+	background-color: #d50000;
+  }
+  
+  .card-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  
+  .card-inner > .material-icons-outlined {
+	font-size: 45px;
+  }
+  
+  .charts {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-top: 60px;
+  }
+  
+  .charts-card {
+	background-color: #263043;
+	margin-bottom: 20px;
+	padding: 25px;
+	box-sizing: border-box;
+	-webkit-column-break-inside: avoid;
+	border-radius: 5px;
+	box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chart-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  
+  /* ---------- MEDIA QUERIES ---------- */
+  
+  /* Medium <= 992px */
+  
+  @media screen and (max-width: 992px) {
+	.grid-container {
+	  grid-template-columns: 1fr;
+	  grid-template-rows: 0.2fr 3fr;
+	  grid-template-areas:
+		"header"
+		"main";
+	}
+  
+	#sidebar {
+	  display: none;
+	}
+  
+	.menu-icon {
+	  display: inline;
+	}
+  
+	.sidebar-title > span {
+	  display: inline;
+	}
+  }
+  
+  
+  /* Small <= 768px */
+  
+  @media screen and (max-width: 768px) {
+	.main-cards {
+	  grid-template-columns: 1fr;
+	  gap: 10px;
+	  margin-bottom: 0;
+	}
+  
+	.charts {
+	  grid-template-columns: 1fr;
+	  margin-top: 30px;
+	}
+  }
+  
+  
+  /* Extra Small <= 576px */
+  
+  @media screen and (max-width: 576px) {
+	.hedaer-left {
+	  display: none;
+	}
+  }

@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMS</title>
+    <!-- favicon icon -->
+    <link rel="icon" type="image/x-icon" href="../static/pic/nike-removebg-preview.png">
+   
+    <link rel="stylesheet" href="{% static 'asset/dashboard.css' %}">
+  
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+   <!-- Montserrat Font -->
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+   <!-- Material Icons -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+ 
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">IMS</span>
+      </div>
+      <div class="navv">
+        <a href="#about">Mega Menu</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Store</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Profile</a>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">IMS</span>
+        </div>
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="{% url 'dashboard' %}" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Dashboard</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'product' %}" class="nav-link">
+                <i class="bx bxs-shopping-bags icon"></i>
+                <span class="link">Products</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'supplier' %}" class="nav-link">
+                <i class="bx bx-user-pin icon"></i>
+                <span class="link">Supplier</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'purchase' %}" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Purchase</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'sale' %}" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Sales</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'inventory' %}" class="nav-link">
+                <i class="bx bx-folder-open icon"></i>
+                <span class="link">Inventory</span>
+              </a>
+            </li>
+            {% comment %} <li class="list">
+              <a href="{% url 'customer' %}"class="nav-link">
+                <i class="bx bx-male icon"></i>
+                <span class="link">Customer</span>
+                
+              </a>
+            </li> {% endcomment %}
+          </ul>
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li  class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="overlay"></section>
+  <!-- main body -->
+
+
+
+  
+
+    <!-- Main -->
+     <!-- Main -->
+     <main class="main-container">
+      <div class="main-title">
+        <h2>DASHBOARD</h2>
+      </div>
+
+      <div class="main-cards">
+
+        <div class="card">
+          <div class="card-inner">
+            <h3>PRODUCTS</h3>
+            <span class="material-icons-outlined">inventory_2</span>
+          </div>
+          {% comment %} <h1>{{product_count}}</h1> {% endcomment %}
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h3>PURCHASE</h3>
+            <span class="material-icons-outlined">category</span>
+          </div>
+          {% comment %} <h1>25</h1> {% endcomment %}
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h3>SALES</h3>
+            <span class="material-icons-outlined">groups</span>
+          </div>
+          {% comment %} <h1>1500</h1> {% endcomment %}
+        </div>
+
+        
+
+      </div>
+
+      <div class="charts">
+
+        <div class="charts-card">
+          <h2 class="chart-title">Top  Products</h2>
+          <div ><img src="../static/pic/nike2.jpg" style="width:600px;height: 350px;"></div>
+        </div>
+
+        <div class="charts-card">
+          <h2 class="chart-title">Purchase and Sales Orders</h2>
+          <div id="area-chart"></div>
+        </div>
+
+      </div>
+    </main>
+    <!-- End Main -->
+
+  
+    
+    
+ <!-- scripts -->
+ <script src="{% static 'js/java.js' %}"></script>
+ {% comment %} <script src="../java/java.js"></script> {% endcomment %}
+
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
+    <script src="{% static 'js/chart.js' %}"></script>
+  </body>
+
+</html>
+{% comment %} python manage.py runserver {% endcomment %}

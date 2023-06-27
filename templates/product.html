@@ -1,0 +1,285 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMS</title>
+    <!-- favicon icon -->
+    <link rel="icon" type="image/x-icon" href="../static/pic/nike-removebg-preview.png">
+    
+    <link rel="stylesheet" href="{% static '../static/asset/product.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+   <!-- Montserrat Font -->
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900display=swap" rel="stylesheet">
+  
+   <!-- Material Icons -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+   <link rel="stylesheet" href="css/styles.css">
+   <!-- bootstarrp -->
+   
+   <!-- <!–Jquery CDN link –> -->
+   {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% endcomment %}
+   
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">IMS</span>
+      </div>
+      <div class="navv">
+        <a href="#about">Mega Menu</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Store</a>
+      </div>
+      <div class="navv">
+        <a href="#about">Profile</a>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">IMS</span>
+        </div>
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="{% url 'dashboard' %}" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Dashboard</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="{% url 'product' %}" class="nav-link">
+                <i class="bx bxs-shopping-bags icon"></i>
+                <span class="link">Products</span>
+              </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'supplier' %}" class="nav-link">
+                  <i class="bx bx-user-pin icon"></i>
+                  <span class="link">Supplier</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'purchase' %}" class="nav-link">
+                  <i class="bx bx-bar-chart-alt-2 icon"></i>
+                  <span class="link">Purchase</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'sale' %}" class="nav-link">
+                  <i class="bx bx-pie-chart-alt-2 icon"></i>
+                  <span class="link">Sales</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="{% url 'inventory' %}" class="nav-link">
+                  <i class="bx bx-folder-open icon"></i>
+                  <span class="link">Inventory</span>
+                </a>
+              </li>
+              {% comment %} <li class="list">
+                <a href="{% url 'customer' %}"class="nav-link">
+                  <i class="bx bx-male icon"></i>
+                  <span class="link">Customer</span>
+                  
+                </a>
+              </li> {% endcomment %}
+          </ul>
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Settings</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="overlay"></section>
+
+     <!-- Main -->
+     <main class="main-container">
+      <div class="main-title">
+        <h2 class="h2">PRODUCT</h2>
+     
+         
+          
+      </div>
+      <br>
+      <div class="main-tile">
+       
+        
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="bx bx-plus-medical icon"><br></i>Add Product</button>
+       
+      </div>
+      
+    <br>
+
+      <div class="forms-pro" >
+        <h2 >Products</h2>
+
+        <p>Added product show here</p>
+     
+
+        <section>
+          <!--for demo wrap-->
+         
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+                <tr>
+                  <th >Product ID</th>
+                  <th >Article Number</th>
+                  <th >Brand</th>
+                  <th >Color</th>
+                  <th >Size</th>
+                  <th >Category</th>
+          
+                  <th>Delete</th>
+                  
+                  <th>Update</th> 
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {% for each_item in  product %}
+                <td>{{ each_item.pro_id }}</td>
+                  <td>{{ each_item.ar_name }}</td>
+                  <td>{{ each_item.brand }}</td>
+                  <td>{{ each_item.color }}</td>
+                  <td>{{ each_item.size }}</td>
+                  <td>{{ each_item.cate }}</td>
+                  
+                  <td> <a class="bt-1"href="{% url 'delete_product' each_item.pro_id %}">Delete</a></td>
+                  <td> <a class="bt-1"href="{% url 'update_product' each_item.pro_id %}" > Update
+                    
+                  </a></td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+            </table>
+          </div>
+        </section> 
+      </div>
+      {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  
+{% endif %}
+
+    </main>
+
+    
+    
+    <!-- follow me template -->
+    {% comment %} <div class="made-with-love">
+      Made with
+      <i>♥</i> by
+      <a target="_blank" href="https://codepen.io/nikhil8krishnan">Nikhil Krishnan</a>
+    </div> {% endcomment %}
+    <!-- End Main -->
+
+  <!-- pop up -->
+
+
+  
+<div id="id01" class="modal">
+    
+    <form class="modal-content animate" action="{% url 'save_product' %}" method="post">{% csrf_token %}
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+   <div class="text">
+               Product Attributes
+            </div>
+      </div>
+  
+      <div class="container">
+
+        <label for="ar_name"><b>Article ID</b></label>
+        <input type="text" placeholder="Enter Article ID" name="ar_name" id="ar_name" required>
+        <label for="brand"><b>Brand</b></label>
+        <input type="text" placeholder="Enter Brand" id="Brand" name="brand" required>
+  
+        <label for="color"><b>Color</b></label>
+        <input type="text" placeholder="Enter Color" id="Color" name="color" required>
+        
+        <label for="size"><b>Size</b></label>
+        <input type="number" placeholder="Enter Size" id="Size" name="size" required>
+        
+        <label for="cate"><b>Category</b></label>
+        <input type="text" placeholder="Enter Cate" id="Cate" name="cate" required>
+        
+        
+       
+        <div class="btn">
+          <div class="inner"></div>
+          <button type="submit">Save Product</button>
+       </div>
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        
+      </div>
+    </form>
+  </div>
+{% comment %} update {% endcomment %}
+
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+ // Get the modal
+   
+  </script>
+    
+ <!-- scripts -->
+
+ <script src="{% static 'js/java.js' %}"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+
+
+  </body>
+  
+</html>
+{% comment %} <form method="post" action="{% url 'update_product' product.pro_id %}">
+  {% csrf_token %}
+  <input type="hidden" name="pro_id" value="{{ product.pro_id }}">
+  <!-- Include other input fields for the product information -->
+  <input type="text" name="ar_name" value="{{ product.ar_name }}">
+  <input type="text" name="brand" value="{{ product.brand }}">
+  <input type="text" name="color" value="{{ product.color }}">
+  <input type="number" name="size" value="{{ product.size }}">
+  <input type="text" name="cate" value="{{ product.cate }}">
+  <button type="submit">Update</button>
+</form> {% endcomment %}
